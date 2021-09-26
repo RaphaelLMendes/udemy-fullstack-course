@@ -1,0 +1,33 @@
+body {
+    background-color: #f5f5f5;
+    /* background-image: url("img.jpg"); */
+    /* background-size: cover; */
+}
+#leaf-img {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    display: inline-block;
+    border-radius: 0 50% 0 50%;
+    background-image: url("img.jpg");
+    background-position: center center;
+    background-size: cover;
+    box-shadow: 6px 6px 15px inset #444;
+}
+#box {
+    width: 200px;
+    height: 200px;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 2px;
+    margin: 10px auto;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    /* opacity: 0.5; */
+}
+
+.floating-img {
+    float: right; 
+    margin: 10px; 
+    border: 1px solid black;
+}

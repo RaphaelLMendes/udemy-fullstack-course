@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: 'Josefin Sans', sans-serif;
+            
+        }
+        .image {
+            background-image: linear-gradient(180deg,
+                                    rgba(0,0,0,0.3) 0%,
+                                    rgba(0,0,0,0.8) 100%),
+                                    url("galaxy2.jpg");
+            height: 500px;
+            
+        }
+
+        .text {
+            display: inline-block;
+            /* border: 1px solid red; */
+            max-width: 50%;
+            color: white;
+            margin: 200px 100px;
+        }
+
+        li a {
+            text-decoration: none;
+            color: black;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 30px 100px;
+        }
+
+        .nav_link {
+            list-style: none;
+        }
+
+        .nav_link li {
+            display: inline-block;
+            padding: 0px 20px;
+            
+        }
+
+        .nav_link li a {
+            font-size: x-large;
+        }
+        #grid {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-column-gap: 20px;
+            grid-row-gap: 20px;
+        }
+
+        #grid .item {
+            border: 1px solid black;
+
+        }
+
+        .largetext {
+            display: inline-block;
+            /* border: 1px solid black; */
+            width: 100%;
+            height: ;
+            margin: 100px auto;
+            text-align: center;
+        }
+
+        .large-header {
+            font-size: 70px;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: auto auto;
+            padding: 100px;
+            grid-column-gap: 20px;
+        }
+
+        .card {
+            border: 1px solid lightgray;
+            
+        }
+
+        .card-body {
+            text-align: center;
+            padding: 30px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .box-image {
+            margin: 30px 100px;
+            width: 60%;
+            height: 500px;
+            /* border: 10px solid black; */
+            position: relative;
+            background-image: url("rocket.jpg");
+            background-repeat: no-repeat;
+        }
+
+        .small-box {
+            position: absolute;
+            /* border: 3px solid blue; */
+            /* background: linear-gradient(0deg, rgba(78,77,77,1) 0%, rgba(164,164,164,1) 100%); */
+            background: url("grey-pattern.png");
+            width: 50%;
+            height: 50%;
+            top: 60%;
+            left: 70%;
+            padding: 20px;
+            color: white;
+            text-align: left;
+        }
+
+        .small-box-title {
+            padding: 30px;
+        }
+
+        .rocket {
+            height: 100px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            animation-name: flyMe;
+            animation-duration: 10s;
+            animation-iteration-count:initial;
+
+        }
+
+        @keyframes flyMe {
+            0% {
+                bottom: 0;
+                left: 0;
+                transform: rotate(0deg); 
+            }
+            25%{
+                bottom: 10%;
+                left: 20%;
+                transform: rotate(45deg); 
+            }
+            75%{
+                bottom: 10%;
+                left: 60%;
+                transform: rotate(45deg); 
+            }
+            100% {
+                bottom: 0;
+                left: 90%;
+                transform: rotate(-45deg); 
+            }
+        }
+        
+    </style>
+
+</head>
+<body>
+    <div class="grid">
+        <header class="item">
+            <img src="logo.png" alt="Logo" height=50px>
+            <nav>
+                <Ul class="nav_link">
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Course</a></li>
+                </Ul>
+            </nav>
+        </header>
+        <div class="item image">
+            <div class="text">
+                <h1 class="large-header">Supreme Rocket Maintenance</h1>
+                <h3>Your rocket is your $1,000,000,000 baby. We get that.</h3>
+            </div>
+            
+        </div>
+        
+        <div class="item">
+            <div class="largetext">
+                <h2>Your rocket is valuable. Let the professionals work on it.</h2>
+            </div>
+        </div>
+        <div class="item">
+            <div class="card-container">
+                <div class="card">
+                    <a href="#">
+                        <img src="imgCard1.jpg" alt="">
+                    </a>
+                    <a href="#" class"normal">
+                        <div class="card-body">
+                            <h3>Its not a toy</h3><br>
+                            <p>Or maybe you're Jeff Bezos.. and rockets are your toys!</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <img src="imgCard2.jpg" alt="">
+                    <div class="card-body">
+                        <h3>Rockets are cool!</h3><br>
+                        <p>Especially when you see photos like this one 🤤</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="box-image">
+                <div class="small-box">
+                    <h1 class="small-box-title">Self landing Rocket</h1>
+                    <p class="small-box-title">Probably the coolest thing ever!! We can program this for you.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <img src="Rocket-PNG-File.png" alt="" class="rocket">
+    </div>
+</body>
+</html>
