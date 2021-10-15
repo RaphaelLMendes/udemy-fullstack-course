@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquey 101</title>
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+
+        .blue{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <input type="text" id="select-me">
+    <button>Click me</button>
+    </div>
+    <div>
+    <form>
+        <input type="text" name="name" placeholder="your text" id="select-me">
+        <button>Submit this form</button>    
+    </form>
+</div>
+
+    <br>
+
+    <div>
+
+        <button id="hide-box">click me to hide the box</button>
+        <div class="box"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            console.log('JQuery is loaded')
+
+            //JQuery here!!
+            
+            //Changing elements
+
+            $('button').text("text in here")
+            $('button').html("<strong>click me</strong>")
+
+            // Append and Prepend adds inside selection
+
+            //Before and after add outside of selection
+            //---------------------------------------------------------------
+                //Event listeners
+            
+            // on click
+            $('button').on("click",function(){
+                console.log('clicked')
+            })
+                
+            //on hover
+            $('button')
+                .on("mouseenter", function(){
+                    console.log('hover')
+                })
+                .on("mouseleave", function(){
+                    console.warn('You left the button')
+                })
+
+            // on keypress
+
+            $(document).on("keyup", function(){
+                console.log("Key pressed!")
+            });
+
+            //This keyword
+            $('#select-me').on('keyup', function(){
+                console.log($(this).val())
+            });
+
+            //on FOcus
+            $('#select-me').on('focus', function(){
+                console.log("you focused")
+            })
+            .on('blur', function(){
+                console.log($(this).val())
+            });
+
+
+            //---------------------------------------------------------------
+
+            //overrule form submission
+
+            $('form').on('submit', function(event){
+                event.preventDefault()
+                console.log("The form was not submitted")
+            });
+
+            // hide and show elements
+
+            $('#hide-box').on("click", function(e){
+                e.preventDefault();
+                $('.box').hide();
+                setTimeout(() => {$('.box').show().addClass("blue");},1000);
+                setTimeout(() => {$('.box').removeClass("blue");},2000);  
+
+                //toogle
+                
+            });
+
+            // Add class and remove class
+
+            //$('.box').addClass("blue")
+            //$('.box').removeClass("blue")
+
+            //Toogle class
+
+            //$('.box').toogleClass("blue")
+
+            // Adding CSS
+
+            $('.box')
+            .css("background-color", "orange")
+            .css('border','10px solid black')
+            .css({
+                backgroundColor: "yellow",
+                border: "10px solid blue"
+            })
+
+            // Fade-in and out
+
+            $('box').fadeOut()
+            .fadeIn()
+            .fadeToggle()
+
+            // slide-up and down
+
+            $('box').slideUp()
+            .slideDown()
+            .slideToggle()
+
+            // callback function
+            // Functions that happen at the end of a parent function
+
+            $('box').fadeIn(1200,() => {
+                console.log("fade is finished")
+            })
+
+            // looping through selections
+
+            $('div').each(function(index,element){
+                $(element).text(index)
+            })
+
+
+        }); 
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery 101</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin: 20px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <button>click me</button>
+    <div class="box"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script>
+
+        $(document).ready(()=>{
+            //JQuery in here
+
+            const $button = $('button')
+            const $box = $('.box')
+
+            $button.on('click',()=>{
+                $box.animate({
+                    opacity: 0.5,
+                    width: '90%'
+                }, 4000)
+            })
+
+        })
+
+    </script>
+</body>
+</html>
