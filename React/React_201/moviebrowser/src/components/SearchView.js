@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Hero from "./Hero";
 
 //tmdbpassword
@@ -8,20 +9,44 @@ import Hero from "./Hero";
 
 const MovieCard = ({ movie }) => {
   const posterUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+  const detailUrl = `/movies/${movie.id}`;
+  const fillerUrl =
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png";
+
+  function renderIMG() {
+    if (movie.poster_path) {
+      return (
+        <img
+          src={posterUrl}
+          className="card-img-top image-fluid"
+          alt={movie.original_title}
+        />
+      );
+    } else {
+      return (
+        <img
+          src={fillerUrl}
+          className="card-img-top"
+          alt={movie.original_title}
+        />
+      );
+    }
+  }
 
   return (
     <div className="col-lg-3 col-md-6 col-12 my-4">
       <div className="card">
-        <img
+        {/* <img
           src={posterUrl}
           className="card-img-top"
           alt={movie.original_title}
-        />
+        /> */}
+        {renderIMG()}
         <div className="card-body">
           <h5 className="card-title">{movie.original_title}</h5>
-          <a href="go" className="btn btn-primary">
+          <Link to={detailUrl} className="btn btn-primary">
             Show details
-          </a>
+          </Link>
         </div>
       </div>
     </div>
@@ -38,11 +63,21 @@ const SearchView = ({ keyword, searchResults }) => {
   return (
     <>
       <Hero text={title} />
-      {resultsHtml && (
+      {searchResults.length !== 0 ? (
         <div className="container">
           <div className="row">{resultsHtml}</div>
         </div>
+      ) : (
+        <div className="container my-5">
+          <div className="row"><h2>There are no movies by that name</h2></div>
+        </div>
       )}
+
+      {/* {resultsHtml && (
+        <div className="container">
+          <div className="row">{resultsHtml}</div>
+        </div>
+      )} */}
     </>
   );
 };
