@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block body %}
+    
+    <h1>Text</h1>
+        {{object.text}}
+    <h1>image</h1>
+    <img src="{{object.image.url}}" style="width: 100%; height: auto;"/>
+    
+{% endblock  %}
