@@ -18,6 +18,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+MEDIA_ROOT = os.path.join(BASE_DIR,"media/")
+MEDIA_URL = "/media/"
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -47,7 +50,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
 
     'feed',
-    'profile',
+    'profiles',
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [
